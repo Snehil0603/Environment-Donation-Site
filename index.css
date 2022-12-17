@@ -1,0 +1,442 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-size: 62.5%;
+}
+@media only screen and (max-width: 800px) {
+  html {
+    font-size: 57%;
+  }
+}
+body{
+    position: relative;
+}
+
+
+/* NAVBAR */
+
+
+/* Removing default padding and margin for fulwidth navbar */
+
+  .logo {
+    height: 100%;
+    background-color: #fff;
+    margin: 1%;
+    margin-top: 5px;
+  }
+
+  .logoText{
+    height: 100%;
+    text-align: center;
+    font-size: 25px;
+    text-align: center;
+    display: contents;
+    color: goldenrod;
+    font-weight: 900;
+    font-family: 'Roboto Slab', serif;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    height: 7rem;
+    padding: 0 1em 0 1em;
+    /* Feel free to use a different font */
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.1em;
+    flex: 0.5;
+    top: 0%;
+    position: sticky;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    z-index: 1000;
+  }
+  
+  .nav ul {
+    display: flex;
+    list-style: none;
+    height: 100%;
+    justify-content: end;
+    align-items: center;
+    flex: 1;
+
+    
+  }
+  
+  .nav .item {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 100%;
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: white;
+    font-size: large;
+    font-weight: 800;
+    height: 100%;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px 0 25px;
+    transition: 0.1s;
+    white-space: nowrap;
+  }
+  
+  .nav .item:hover {
+    background-color: rgba(219, 54, 54, 0.938);
+    color: #fff;
+    transition: 0.1s;
+    border-radius: 25px;
+  }
+  /* Icon padding */
+  .nav a i {
+    margin-right: 10px;
+  }
+
+
+  
+  /* Denotes the active menu item */
+  .active {
+    background-color: #e6eff0;
+    /* transition: 0.1s; */
+  }
+  
+  /* Mobile Menu Toggle */
+  .toggle {
+    display: none;
+    position: fixed;
+    top: 5%;
+    right: 5%;
+    color: #fff;
+    font-size: 2em;
+    background-color: none;
+    cursor: pointer;
+    pointer-events: auto;
+    transform: none !important;
+    transition: none;
+    translate: none;
+    
+  }
+  
+  /* Animation Easing */
+  .animatedtoggle {
+    transition: all 0.1s ease;
+  }
+  /* Rotate Menu item on toggle*/
+  .rotate {
+    transform: rotate(90deg);
+    transition: all 0.2s ease-in-out;
+  }
+  
+  /* Mobile menu breakpoint */
+  @media screen and (max-width: 950px) {
+    .menu {
+      display: block;
+    }
+    .nav {
+      /* display: block; */
+      height: fit-content;
+    }
+  
+    .nav ul {
+      display: block;
+      margin-top: 1em;
+      padding-bottom: 1em;
+    }
+    .nav ul .item {
+      display: block;
+    }
+    .logo {
+      height: 88px;
+    }
+    .nav a {
+      height: 60px;
+      justify-content: start;
+    }
+    /* Display the toggle */
+    .toggle {
+      display: block;
+      position: fixed;
+      background-color: transparent;
+      border: none;
+      transform: none !important;
+      transition: none !important;
+      translate: none !important;
+      animation: none !important;
+    }
+    /* Hide the primary nav */
+    ul.inactive {
+      display: none;
+    }
+  }
+  
+
+
+
+
+
+
+/* SLIDER */
+
+
+.container {
+ 
+  z-index: -1;
+  overflow: hidden;
+  position: absolute;
+  top: 0%;
+  width: 100vw !important;
+  height:100vh;
+}
+
+
+.donate-button{
+    position: fixed;
+    margin-top: 450px;
+    z-index: 10;
+    margin-left: 40%;
+   background-color: rgba(219, 54, 54, 0.938);
+}
+
+.btn {
+    display: inline-block;
+
+   cursor: pointer;
+   color: #fff;
+   font-size: 15px;
+   padding: 15px;
+   text-decoration: none;
+   text-transform: uppercase;
+   font-family: 'Noto Sans', sans-serif;
+ }
+ 
+
+
+
+.slider {
+  display: flex;
+  width:500vw;
+  height:100vh;
+  transition: all 0.25s ease-in;
+  transform: translateX(0);
+}
+
+.donatebtn{
+    background-color: rgba(219, 54, 54, 0.938);
+    color: #fff;
+    
+}
+
+@media only screen and (max-width: 1000px) {
+  .slider {
+    height: 100vh;
+  }
+}
+.slider .box {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+@media only screen and (max-width: 650px) {
+  .slider .box {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+.slider .box .bg {
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 55%;
+  transform: skewX(7deg);
+  position: absolute;
+  height: 100%;
+  left: -10%;
+  padding-left: 20rem;
+  transform-origin: 0 100%;
+}
+@media only screen and (max-width: 800px) {
+  .slider .box .bg {
+    width: 65%;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .slider .box .bg {
+    width: 55%;
+    left: 0;
+    bottom: 0;
+    height: 54%;
+    transform: skewX(0deg);
+  }
+}
+.slider .box .bg::before {
+  content: "";
+  width: 55%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: inherit;
+  pointer-events: none;
+  transform: skewX(10deg);
+}
+@media only screen and (max-width: 650px) {
+  .slider .box .bg::before {
+    width: 120%;
+    bottom: 0;
+    transform: skewX(0deg);
+  }
+}
+.slider .box .details {
+  padding: 5rem;
+  padding-left: 10rem;
+  z-index: 100;
+  grid-column: 1/span 1;
+  grid-row: 1/-1;
+  color: #fff;
+}
+@media only screen and (max-width: 650px) {
+  .slider .box .details {
+    grid-row: 2/span 1;
+    grid-column: 1/-1;
+    text-align: center;
+    padding: 2rem;
+    transform: translateY(-9rem);
+  }
+}
+.slider .box .details h1 {
+  font-size: 3.5rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.slider .box .details p {
+  display: inline-block;
+  font-size: 1.5rem;
+  color: #B5B4B4;
+  margin-bottom: 2rem;
+  margin-right: 5rem;
+}
+@media only screen and (max-width: 800px) {
+  .slider .box .details p {
+    margin-right: 0;
+  }
+}
+.slider .box1 {
+  background:url("https://cdn.vox-cdn.com/thumbor/4lZhGRAv48hPydIjsvLrEh6BhvA=/0x0:4200x2800/1200x800/filters:focal(1764x1064:2436x1736)/cdn.vox-cdn.com/uploads/chorus_image/image/65724489/GettyImages_1164561717.7.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.slider .box2 {
+  background:url("https://media.cntraveller.com/photos/611becca628f4910ed10222d/16:9/w_2992,h_1683,c_limit/gettyimages-1044285108.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.slider .box3 {
+  background:url("https://ichef.bbci.co.uk/news/976/cpsprodpb/179C0/production/_125840769_hi077252483.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.slider .box4 {
+  background:url("https://static01.nyt.com/images/2020/06/07/world/07amazon-bw/06amazon-videoSixteenByNineJumbo1600.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.slider .box5 {
+  background:url("https://eoimages.gsfc.nasa.gov/images/imagerecords/145000/145888/br163defores_tmo_amo_2019_th.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+.prev,
+.next,
+.trail {
+  z-index: -1;
+  position: absolute;
+} 
+
+ .prev,
+.next {
+  width: 4rem;
+  cursor: pointer;
+  opacity: 0.2;
+  transition: all 0.3s ease;
+} 
+@media only screen and (max-width: 650px) {
+  .prev,
+.next {
+    display: none;
+  }
+}
+.prev:hover,
+.next:hover {
+  opacity: 1;
+}
+
+.prev {
+  top: 50%;
+  left: 2%;
+  transform: translateY(-50%);
+}
+
+.next {
+  top: 50%;
+  right: 2%;
+  transform: translateY(-50%);
+}
+
+.trail {
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+@media only screen and (max-width: 650px) {
+  .trail {
+    width: 90%;
+    bottom: 13%;
+  }
+}
+.trail div {
+  padding: 2rem;
+  border-top: 3px solid #fff;
+  cursor: pointer;
+  opacity: 0.3;
+  transition: all 0.3s ease;
+}
+.trail div:hover {
+  opacity: 0.6;
+}
+@media only screen and (max-width: 650px) {
+  .trail div {
+    padding: 1rem;
+  }
+}
+
+.active {
+  opacity: 1 !important;
+} 
